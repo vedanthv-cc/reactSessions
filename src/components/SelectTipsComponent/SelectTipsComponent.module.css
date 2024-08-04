@@ -1,0 +1,106 @@
+.container {
+  margin: 20px 0;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5d6d6c;
+  margin-bottom: 10px;
+}
+
+.tipButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tipButton {
+  flex: 1 1 calc(33.333% - 10px);
+  background-color: #00494d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tipButton:hover {
+  background-color: #26c0ab;
+}
+
+.selected {
+  background-color: #26c0ab;
+  color: #ffffff;
+}
+
+.customInput {
+  flex: 1 1 calc(33.333% - 10px);
+  display: block;
+  border: 2px solid #ffffff;
+  background-color: #f3f8fb;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100px;
+  color: #00474b;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  outline: none;
+  border: 2px solid hsl(172deg 31% 52% / 0%);
+}
+.customInput:focus-visible {
+  border: 2px solid hsl(172deg 31% 52% / 100%);
+}
+
+/* Default: Desktop monitors, 1501px and up */
+@media (min-width: 1501px) {
+  .tipButton {
+    flex: 1 1 calc(25% - 15px); /* Adjust button size for larger screens */
+  }
+
+  .customInput {
+    width: 150px; /* Adjust input width for larger screens */
+  }
+}
+
+/* Laptop: 1100px to 1500px */
+@media (min-width: 1100px) and (max-width: 1500px) {
+  .tipButton {
+    flex: 1 1 calc(33.333% - 10px); /* Default button size for laptops */
+  }
+
+  .customInput {
+    width: 120px; /* Adjust input width for laptops */
+  }
+}
+
+/* Tablets: 550px to 1099px */
+@media (min-width: 550px) and (max-width: 1099px) {
+  .tipButton {
+    flex: 1 1 calc(50% - 10px); /* Adjust button size for tablets */
+  }
+
+  .customInput {
+    width: 100px; /* Adjust input width for tablets */
+  }
+}
+
+/* Phones: 0px to 549px */
+@media (max-width: 549px) {
+  .tipButton {
+    flex: 1 1 100%; /* Full width buttons on smaller screens */
+  }
+
+  .customInput {
+    width: 80px; /* Adjust input width for phones */
+  }
+}

@@ -1,0 +1,146 @@
+/* Base Styles */
+.container {
+  font-family: "Space Mono";
+  font-weight: 700;
+  background-color: white;
+  color: #5d6d6c;
+  --error-color: hsl(13deg, 31%, 58%);
+  margin: 0 1px;
+  min-height: 6.4rem;
+}
+.inputContainer {
+  position: relative;
+}
+
+.numberInput {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 8px 20px;
+  text-align: right;
+  width: 100%;
+  display: block;
+  background: #f3f8fb;
+  border-radius: 6px;
+  color: inherit;
+  outline: none;
+  border: 2px solid hsl(172deg 31% 52% / 0%);
+  transition: border-color 0.3s ease;
+}
+
+.numberInput:focus-visible {
+  border: 2px solid hsl(172deg 31% 52% / 100%);
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.1rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.iconContainer {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: grid;
+  place-content: center;
+}
+
+.errorMessage {
+  min-height: 1.5rem;
+  color: var(--error-color);
+}
+
+.error {
+  border: 2px solid var(--error-color) !important;
+}
+
+.error:focus-visible {
+  border: 2px solid var(--error-color) !important;
+}
+
+/* Media Queries */
+
+/* Desktop monitors, 1500px and up */
+@media (min-width: 1500px) {
+  .numberInput {
+    font-size: 2rem;
+    padding: 10px 25px;
+  }
+
+  .label {
+    font-size: 1.5rem;
+  }
+
+  .iconContainer {
+    left: 30px;
+  }
+
+  /* .iconContainer img {
+    width: 24px;
+  } */
+}
+
+/* Laptops, 1100px to 1499px */
+@media (min-width: 1100px) and (max-width: 1499px) {
+  .numberInput {
+    font-size: 1.8rem;
+    padding: 10px 20px;
+  }
+
+  .label {
+    font-size: 1.4rem;
+  }
+
+  .iconContainer {
+    left: 25px;
+  }
+
+  /* .iconContainer img {
+    width: 14px;
+  } */
+}
+
+/* Tablets, 550px to 1099px */
+@media (min-width: 550px) and (max-width: 1099px) {
+  .numberInput {
+    font-size: 1.6rem;
+    padding: 8px 15px;
+  }
+
+  .label {
+    font-size: 1.25rem;
+  }
+
+  .iconContainer {
+    left: 20px;
+  }
+
+  /* .iconContainer img {
+    width: 16px;
+  } */
+}
+
+/* Phones, 0px to 549px */
+@media (max-width: 549px) {
+  .numberInput {
+    font-size: 1.4rem;
+    padding: 6px 10px;
+  }
+
+  .label {
+    font-size: 1.1rem;
+  }
+
+  .iconContainer {
+    left: 15px;
+  }
+
+  /* .iconContainer img {
+    width: 14px;
+  } */
+}
