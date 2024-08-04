@@ -87,7 +87,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <button onClick={handlePrevious}>Previous</button>
+      {/* <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
 
       <Card type={typeOfCard[currentIndex]}>
@@ -113,10 +113,11 @@ const App: React.FC = () => {
           <h2>Product of Counts = {firstCount * secondCount}</h2>
         </p>
       </div>
-      <div>
-        <TipCalculator />
-      </div>
+      <div> */}
+
+      <TipCalculator />
     </div>
+    // </div>
   );
 };
 

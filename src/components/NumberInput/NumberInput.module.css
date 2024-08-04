@@ -1,44 +1,46 @@
 /* Base Styles */
 .container {
-  font-family: "Space Mono";
-  font-weight: 700;
-  background-color: white;
-  color: #5d6d6c;
-  --error-color: hsl(13deg, 31%, 58%);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  background-color: var(--background-color-primary, white);
+  color: var(--text-color-secondary, #5d6d6c);
   margin: 0 1px;
-  min-height: 6.4rem;
+  min-height: 8.9rem;
+  width: 100%;
 }
+
 .inputContainer {
   position: relative;
 }
 
 .numberInput {
   font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
   padding: 8px 20px;
   text-align: right;
   width: 100%;
   display: block;
-  background: #f3f8fb;
+  background: var(--background-color-input, #f3f8fb);
   border-radius: 6px;
-  color: inherit;
+  color: var(--text-color-input, #084643);
   outline: none;
-  border: 2px solid hsl(172deg 31% 52% / 0%);
+  border: 2px solid var(--border-color-input, hsl(172deg 31% 52% / 0%));
   transition: border-color 0.3s ease;
 }
 
 .numberInput:focus-visible {
-  border: 2px solid hsl(172deg 31% 52% / 100%);
+  border: 2px solid var(--border-color-input-focus, hsl(172deg 31% 52% / 100%));
 }
 
 .label {
   font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.1rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
   margin-bottom: 6px;
   display: block;
+  color: var(--text-color-secondary, #5d6b6c);
 }
 
 .iconContainer {
@@ -52,15 +54,16 @@
 
 .errorMessage {
   min-height: 1.5rem;
-  color: var(--error-color);
+  color: var(--error-color, hsl(13deg, 31%, 58%));
+  min-width: 150px; /* Adjust this value as needed */
 }
 
 .error {
-  border: 2px solid var(--error-color) !important;
+  border: 2px solid var(--error-color, hsl(13deg, 31%, 58%));
 }
 
 .error:focus-visible {
-  border: 2px solid var(--error-color) !important;
+  border: 2px solid var(--error-color, hsl(13deg, 31%, 58%));
 }
 
 /* Media Queries */
@@ -79,14 +82,10 @@
   .iconContainer {
     left: 30px;
   }
-
-  /* .iconContainer img {
-    width: 24px;
-  } */
 }
 
 /* Laptops, 1100px to 1499px */
-@media (min-width: 1100px) and (max-width: 1499px) {
+@media (max-width: 1499px) {
   .numberInput {
     font-size: 1.8rem;
     padding: 10px 20px;
@@ -99,14 +98,10 @@
   .iconContainer {
     left: 25px;
   }
-
-  /* .iconContainer img {
-    width: 14px;
-  } */
 }
 
 /* Tablets, 550px to 1099px */
-@media (min-width: 550px) and (max-width: 1099px) {
+@media (max-width: 1099px) {
   .numberInput {
     font-size: 1.6rem;
     padding: 8px 15px;
@@ -119,14 +114,14 @@
   .iconContainer {
     left: 20px;
   }
-
-  /* .iconContainer img {
-    width: 16px;
-  } */
 }
 
 /* Phones, 0px to 549px */
 @media (max-width: 549px) {
+  .container {
+    min-height: 7rem;
+  }
+
   .numberInput {
     font-size: 1.4rem;
     padding: 6px 10px;
@@ -139,8 +134,4 @@
   .iconContainer {
     left: 15px;
   }
-
-  /* .iconContainer img {
-    width: 14px;
-  } */
 }

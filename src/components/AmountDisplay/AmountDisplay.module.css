@@ -1,0 +1,55 @@
+.displayContainer {
+  font-family: var(--font-family);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  margin: 20px 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  max-width: 566px;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--white-color);
+  min-width: 124px;
+  text-align: left; /* Aligns the label to the left */
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-color);
+  overflow-x: auto;
+  text-align: right; /* Aligns the amount to the right */
+}
+
+/* Responsive Styles */
+@media (min-width: 1501px) {
+  .amount {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 1500px) {
+  .amount {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1099px) {
+  .amount {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 549px) {
+  .label {
+    font-size: 1rem;
+  }
+  .amount {
+    font-size: 1.4rem;
+  }
+}

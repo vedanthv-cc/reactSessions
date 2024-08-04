@@ -1,68 +1,93 @@
+/* app.css */
+
+/* Font and Typography */
+:root {
+  --font-family: "Space Mono";
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Colors */
+  --background-color: rgb(0, 0, 0);
+  --text-color-light: #888;
+  --primary-color: #00494d;
+  --secondary-color: #26c0ab;
+  --white-color: #ffffff;
+  --text-color-dark: #5d6d6c;
+  --error-color: hsl(13deg, 31%, 58%);
+  --background-light: #f3f8fb;
+  --widget-border-color: rgba(176, 176, 176, 0.584);
+  --gradient-warning: linear-gradient(to right, #f7d838, #ffc107);
+  --gradient-error: linear-gradient(to right, #ffffff, #d3d3d3);
+  --gradient-info: linear-gradient(to right, #428bca, #007bff);
+  --widget-icon-color: rgb(179, 0, 255);
+  --reset-btn-bg: #25c2ad;
+  --reset-btn-hover-bg: #0d686d;
+  --tip-button-bg: #00494d;
+  --tip-button-hover-bg: #26c0ab;
+  --label-color: #5d6b6c;
+
+  /* Spacing and Sizing */
+  --line-height: 1.5;
+  --padding: 2em;
+  --box-sizing: border-box;
+  --font-smoothing: antialiased;
+}
+
+/* Root Container */
 #root {
-  max-width: 1280px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
+/* Card Component */
 .card {
-  padding: 2em;
+  padding: var(--padding);
 }
 
+/* Read The Docs Text */
 .read-the-docs {
-  color: #888;
+  color: var(--text-color-light);
 }
 
+/* Body Styles */
 body {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--background-color);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: var(--font-smoothing);
 }
 
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
+/* Box-Sizing Model */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
-/*
-  2. Remove default margin
-*/
+
+/* Remove Default Margin */
 * {
   margin: 0;
 }
-/*
-  Typographic tweaks!
-  3. Add accessible line-height
-  4. Improve text rendering
-*/
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-/*
-  5. Improve media defaults
-*/
+
+/* Media Defaults */
 img,
 picture,
 video,
 canvas,
 svg {
   display: block;
-  /* max-width: 100%; */
+  max-width: 100%;
 }
-/*
-  6. Remove built-in form typography styles
-*/
+
+/* Form Elements Typography */
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
-/*
-  7. Avoid text overflows
-*/
+
+/* Text Overflow Handling */
 p,
 h1,
 h2,
@@ -72,24 +97,24 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-/*
-  8. Create a root stacking context
-*/
+
+/* Root Stacking Context */
 #root,
 #__next {
   isolation: isolate;
 }
 
+/* Font Faces */
 @font-face {
   font-family: "Space Mono";
   src: url("./assets/fonts/SpaceMono-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   font-style: normal;
 }
 
 @font-face {
   font-family: "Space Mono";
   src: url("./assets/fonts/SpaceMono-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: bold;
+  font-weight: var(--font-weight-bold);
+  font-style: normal;
 }

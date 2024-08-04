@@ -3,7 +3,7 @@ import styles from "./SelectTipsComponent.module.css";
 
 export interface TipSelectorProps {
   selectedTip: number;
-  onSelectTip: (tip: number) => void;
+  onSelectTip: (tip: string) => void;
 }
 
 const tips = [5, 10, 15, 25, 50];
@@ -14,24 +14,35 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
 }) => {
   const [customTip, setCustomTip] = useState<string>("");
 
-  // Handle custom input change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomTip(e.target.value);
+    const value = e.target.value;
+    if (value === "" || /^[0-9\b]+$/.test(value)) {
+      setCustomTip(value);
+    }
   };
 
-  // Handle custom input blur (when the input loses focus)
   const handleInputBlur = () => {
     const value = parseInt(customTip, 10);
     if (!isNaN(value) && value > 0) {
-      onSelectTip(value);
+      onSelectTip(value.toString());
+    }
+  };
+
+  const handleTipClick = (tip: number) => {
+    if (selectedTip === tip) {
+      onSelectTip("");
+    } else {
+      onSelectTip(tip.toString());
     }
   };
 
   useEffect(() => {
-    if (tips.includes(selectedTip)) {
-      setCustomTip(""); // Clear custom tip if a predefined tip is selected
-    } else {
-      setCustomTip(String(selectedTip)); // Set custom tip if selectedTip is custom
+    if (selectedTip === 0) {
+      setCustomTip("");
+    } else if (tips.includes(selectedTip)) {
+      setCustomTip("");
+    } else if (selectedTip > 0) {
+      setCustomTip(String(selectedTip));
     }
   }, [selectedTip]);
 
@@ -42,15 +53,17 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
         {tips.map((tip) => (
           <button
             key={tip}
-            className={`${styles.tipButton} ${selectedTip === tip ? styles.selected : ""}`}
-            onClick={() => onSelectTip(tip)}
+            className={`${styles.tipButton} ${
+              selectedTip === tip ? styles.selected : ""
+            }`}
+            onClick={() => handleTipClick(tip)}
           >
             {tip}%
           </button>
         ))}
 
         <input
-          type="number"
+          type="text"
           className={` ${styles.customInput} ${
             !tips.includes(selectedTip) ? styles.customButton : ""
           }`}

@@ -30,7 +30,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       </label>
       <div className={styles.inputContainer}>
         <input
-          type="number"
+          type="text"
           id={`${uniqueId}number-input`}
           className={styles.numberInput}
           placeholder="0"
@@ -41,7 +41,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
           <img
             src={iconPaths[iconType]}
             alt={`${iconType}-icon`}
-            style={{ width: iconType === "dollar" ? "16px" : "14px" }} // Adjust icon sizes
+            style={{ width: iconType === "dollar" ? 16 : 24 }} // Adjust icon sizes
           />
         </div>
       </div>

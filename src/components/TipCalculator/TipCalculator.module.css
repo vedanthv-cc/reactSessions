@@ -1,57 +1,121 @@
 .wrapper {
-  width: 100%;
-  /* height: auto; */
-  min-height: 575px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #f3f4f6;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color-wrapper, #f3f4f6);
   padding: 20px;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  min-width: 375px;
+  min-height: 100vh;
   flex-wrap: wrap;
 }
 
 .container {
-  font-family: "Space Mono", monospace;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: white;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--background-color-primary, white);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1158px;
   width: 100%;
-  max-width: 400px;
+  height: 100%;
+}
+
+.inputsContainer,
+.outputsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48%;
+}
+
+.outputsContainer {
+  border-radius: 10px;
+  background-color: var(--primary-color);
+}
+
+.inputsContainer > *,
+.outputsContainer > * {
   margin-bottom: 20px;
 }
 
-.container > * {
-  width: 100%;
-  margin-bottom: 20px;
+.resetButton {
+  margin-top: 120px;
+  background-color: var(--reset-btn-bg);
+  color: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 90%;
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-/* @media (min-width: 600px) {
-  .wrapper {
+.resetButton:hover {
+  border: none;
+  background-color: var(--reset-btn-hover-bg);
+}
+
+/* Media Queries */
+
+/* Large Desktop Screens - 1200px and up */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1158px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
   }
 
-  .container {
-    max-width: 300px;
-    margin-bottom: 0;
+  .inputsContainer,
+  .outputsContainer {
+    width: 48%;
+  }
+  .resetButton {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
 
-@media (min-width: 900px) {
-  .wrapper {
-    justify-content: flex-start;
-    align-items: flex-start;
+/* Tablets and Small Desktops - 600px to 1199px */
+@media (max-width: 1199px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
   }
 
-  .container {
-    max-width: 400px;
+  .inputsContainer,
+  .outputsContainer {
+    width: 48%;
   }
-} */
+
+  .resetButton {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+/* Phones - 599px and below */
+@media (max-width: 599px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .inputsContainer,
+  .outputsContainer {
+    width: 100%;
+  }
+
+  .resetButton {
+    margin-left: 1.2rem;
+    margin-right: 1.5rem;
+  }
+}

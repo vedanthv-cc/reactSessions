@@ -24,7 +24,7 @@ export const Default: Story = {
         selectedTip={selectedTip}
         onSelectTip={(tip: number) => {
           setSelectedTip(tip);
-          args.onSelectTip(tip); 
+          args.onSelectTip(tip);
         }}
       />
     );

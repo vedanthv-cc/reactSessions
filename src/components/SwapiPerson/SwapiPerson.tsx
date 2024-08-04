@@ -66,6 +66,7 @@ export const SwapiPerson = ({ id }: SwapiPersonProps) => {
       ComponentTRender = () => <div>{`Loading...`}</div>;
       break;
     case "loaded":
+      // eslint-disable-next-line no-case-declarations
       const person = responseStatus.data as Person;
       ComponentTRender = () => <div>{`${person.name}`}</div>;
       break;
