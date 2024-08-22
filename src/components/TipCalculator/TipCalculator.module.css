@@ -46,6 +46,7 @@
 .resetButton {
   margin-top: 120px;
   background-color: var(--reset-btn-bg);
+  border-color: #0b5c51;
   color: #333;
   border: none;
   padding: 10px;

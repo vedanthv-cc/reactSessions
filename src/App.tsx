@@ -3,6 +3,8 @@ import "./App.css";
 import { Card, noteType } from "./components/cards/Widget";
 import { Counter } from "./components/counterComponent/Counter";
 import { TipCalculator } from "./components/TipCalculator/TipCalculator";
+import LoginPage from "./components/login";
+import LoginForm from "./components/login";
 
 const contentOfCards = {
   warning: {
