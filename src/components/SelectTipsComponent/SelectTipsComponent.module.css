@@ -11,7 +11,7 @@
   letter-spacing: 0.1em;
   margin-bottom: 6px;
   display: block;
-  color: var(--text-color-secondary);
+  color: var(--text-color-secondary, #5d6b6c);
 }
 
 .tipButtons {

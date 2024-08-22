@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./SelectTipsComponent.module.css";
 
 export interface TipSelectorProps {
   selectedTip: number;
@@ -13,8 +12,10 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
   onSelectTip,
 }) => {
   const [customTip, setCustomTip] = useState<string>("");
+  const [hasInteracted, setHasInteracted] = useState<boolean>(false); // Track user interaction
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHasInteracted(true); // User has interacted with the input
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCustomTip(value);
@@ -29,6 +30,7 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
   };
 
   const handleTipClick = (tip: number) => {
+    setHasInteracted(true); // User has interacted with the buttons
     if (selectedTip === tip) {
       onSelectTip("");
     } else {
@@ -47,14 +49,18 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
   }, [selectedTip]);
 
   return (
-    <div className={styles.container}>
-      <label className={styles.label}>Select Tip %</label>
-      <div className={styles.tipButtons}>
+    <div className="w-full font-bold font-['Space_Mono']">
+      <label className="block mb-1.5 text-gray-600 text-lg md:text-xl tracking-wider">
+        Select Tip %
+      </label>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
         {tips.map((tip) => (
           <button
             key={tip}
-            className={`${styles.tipButton} ${
-              selectedTip === tip ? styles.selected : ""
+            className={`text-center py-2 px-4 rounded-lg text-white text-xl md:text-2xl font-bold cursor-pointer transition-colors duration-300 ${
+              selectedTip === tip
+                ? "bg-teal-500"
+                : "bg-teal-700 hover:bg-teal-500"
             }`}
             onClick={() => handleTipClick(tip)}
           >
@@ -64,8 +70,8 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
 
         <input
           type="text"
-          className={` ${styles.customInput} ${
-            !tips.includes(selectedTip) ? styles.customButton : ""
+          className={`w-full py-2 px-4 rounded-lg text-center text-xl md:text-2xl font-bold text-black bg-gray-100 border-2 border-transparent outline-none focus:border-teal-500 ${
+            !tips.includes(selectedTip) ? "bg-teal-100" : ""
           }`}
           placeholder="Custom"
           min={0}
@@ -75,6 +81,14 @@ export const TipSelector: React.FC<TipSelectorProps> = ({
           onBlur={handleInputBlur}
           onFocus={() => setCustomTip(customTip)}
         />
+      </div>
+      {/* Ensure min-height to prevent content shifting */}
+      <div className="mt-1.5 h-6">
+        {hasInteracted && selectedTip === 0 && customTip === "" && (
+          <p className="text-red-600 text-sm md:text-base">
+            Please select a tip
+          </p>
+        )}
       </div>
     </div>
   );
