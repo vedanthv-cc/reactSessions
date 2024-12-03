@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./TipCalculator.module.css";
 import { NumberInput } from "../NumberInput/NumberInput";
 import { TipSelector } from "../SelectTipsComponent/SelectTipsComponent";
 import { TipAmountDisplay } from "../AmountDisplay/AmountDisplay";
@@ -17,9 +16,9 @@ export const TipCalculator: React.FC = () => {
     (billAmount + tipAmount * numberOfPeople) / numberOfPeople;
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={styles.inputsContainer}>
+    <div className="flex justify-center items-center bg-gray-100 p-5 m-0 mx-auto rounded-lg shadow-lg min-w-[375px] min-h-screen flex-wrap">
+      <div className="flex flex-col lg:flex-row justify-center bg-white p-5 rounded-lg shadow-lg max-w-[1158px] w-full h-full">
+        <div className="flex flex-col justify-between w-full lg:w-[48%] mb-5 lg:mb-0">
           <NumberInput
             label="Bill"
             iconType="dollar"
@@ -44,7 +43,7 @@ export const TipCalculator: React.FC = () => {
             errorMessage={state.people < 1 ? "Must be at least 1" : ""}
           />
         </div>
-        <div className={styles.outputsContainer}>
+        <div className="flex flex-col justify-between w-full lg:w-[48%] bg-primary-color p-5 rounded-lg">
           <TipAmountDisplay
             label="Tip Amount"
             amount={tipPercentage > 0 ? tipAmount : 0.0}
@@ -53,7 +52,10 @@ export const TipCalculator: React.FC = () => {
             label="Total"
             amount={billAmount > 0 ? totalAmount : 0.0}
           />
-          <button className={styles.resetButton} onClick={reset}>
+          <button
+            className="mt-20 bg-reset-btn-bg border-none text-gray-800 p-2.5 rounded-md cursor-pointer w-[90%] text-lg font-bold text-center mb-10 hover:bg-reset-btn-hover-bg"
+            onClick={reset}
+          >
             RESET
           </button>
         </div>
